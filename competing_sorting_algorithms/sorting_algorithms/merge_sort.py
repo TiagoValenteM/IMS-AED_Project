@@ -1,12 +1,19 @@
 from time import time
 
 def sort(my_list):
+    initial = time()
+    list_sorted = sort_recursive(my_list)
+    end = time()
+    return list_sorted, float(round(end - initial, 5))
+
+def sort_recursive(my_list):
     if len(my_list) <= 1:
         return my_list
-    middle = len(my_list)//2
-    left = sort(my_list[:middle])
-    right = sort(my_list[middle:])
-    return merge(left, right)
+    mid = len(my_list)//2
+    left = sort_recursive(my_list[:mid])
+    right = sort_recursive(my_list[mid:])
+    merged = merge(left, right)
+    return merged
 
 def merge(left_list, right_list):
     my_list = []

@@ -1,30 +1,35 @@
 from random import randint
 
+
 def iteration_add(ini, inc, ite):
-    for i in range(ite):
+    new_el_count = inc * ite
+
+    for i in range(new_el_count):
         if i == 0:
             ini = ini
         else:
-            inc = i*inc
-            ini.append(inc)
+            new_element = ite * inc
+            for number in new_element:
+                ini.append(number)
     return ini
 
-def list_initial (ini_size):
-    ini_size= str(ini_size)
+
+def user_input(ini_size):
+    ini_size = str(ini_size)
     ini_size = ini_size.upper()
     for i in ini_size:
         if i == "K":
-            ini_size = ini_size.replace("K","000")
+            ini_size = ini_size.replace("K", "000")
         elif i == "M":
             ini_size = ini_size.replace("M", "000000")
         elif i == "B":
-            ini_size = ini_size.replace("B","000000000")
+            ini_size = ini_size.replace("B", "000000000")
     ini_size = int(ini_size)
-    random_list = [randint(0,1000) for i in range(ini_size)]
-    return random_list
+    return ini_size
 
-def list_iti (inc_size):
-    inc_size= str(inc_size)
+
+def list_iti(inc_size):
+    inc_size = str(inc_size)
     inc_size = inc_size.upper()
     for i in inc_size:
         if i == "K":
