@@ -131,3 +131,8 @@ dmypy.json
 
 # MAC OS
 .DS_Store
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/Semester Project.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
