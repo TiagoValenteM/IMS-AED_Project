@@ -1,2 +1,2 @@
 # IMS-AED_Project
-Project done for the course Comp2 - Algorithms and Data structures
+College Project - Algorithms & Data Structures Course
