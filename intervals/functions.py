@@ -86,22 +86,18 @@ def matrix_increase(user_interval, unorganized_matrix):
                 interval.append(element)
             index_to_insert = None
             break
-        # non continuous case
-        # se user-interval vier na frente
+        # noncontinuous case
+        # user_interval that comes after
         if user_interval[0] > max:
             if user_interval[-1] - max >= 2:
-                # or interval[0] - user_interval[-1] >= 2 :
                 index_to_insert = index + 1
-                # unorganized_matrix.insert(index+1,user_interval)
-                # print("descontinuo! o user interval é na frente")
-        # elif o userinterval vier atrás
+        # user_interval that comes before
         elif user_interval[-1] < min:
             if max - user_interval[-1] >= 2:
                 unorganized_matrix.insert(index, user_interval)
                 index_to_insert = None
                 break
-                # print("descontinuo! o user interval vem atras")
-        else:  # caso overlapping
+        else:  # overlapping case
             remove_common(interval, user_interval, unorganized_matrix)
             if len(user_interval) > 0:
                 matrix_increase(user_interval, unorganized_matrix)
