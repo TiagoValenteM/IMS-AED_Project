@@ -1,82 +1,68 @@
 # IMS-AED_Project
 College Project - Algorithms & Data Structures Course
 
-## Intro
+<br>
 
-During the COVID-19 pandemic, a restriction on the maximum amount of people that
-could be simultaneously inside a room, was imposed by Técnico Lisboa. This capacity
-depended on several factors, including the room dimension, ventilation, etc. The need
-to automatically detect the number of persons inside a lab without affecting privacy, led
-to the implementation of an experimental lab based on low-cost, non-intrusive sensors.
-The lab consists of a 13m2 room where a Zigbee based wireless sensor network was
-installed. The lab has three workstations (a chair, and a desk with a dock station and a
-table lamp). There is a small window above workstation 3 and there is no
-heating/ventilation/AC system active in the room.
-The wireless network is a Zigbee-based star network with six slave nodes feeding data
-to the master node. There is one CO2 sensor (MH-Z14A) in the center of the room, two
-digital infrared motion sensors (PIR) in opposed walls, and, in each workstation, a node
-containing a light sensor (BH1750) and a temperature sensor (LMT84LP) has been
-installed.
-PIR sensor data indicates if movement was detected during the last 30s. For the
-remaining sensor nodes, the Arduino Uno microcontroller board sampled data from the
-sensors and transmitted it periodically via a Zigbee module every 30s.
-Sensor measurements were taken over a period of several days. Each student manually
-annotated when entered and left the room during this period. Therefore, true
-occupancy was annotated during the measurement period.
-The resulting dataset has now been made available (Lab6Dataset.csv)
+## 📔 Summary
 
-## Objective
+During our Spring Semester, we learned about Python algorithms and object-oriented programming. 
+Our course project is composed by 3 exercises:
+- The first one is based on making the learning sorting algorithms compete and if desired creating our sorting algorithms.
+- In the second one, we develop a Python program that gets several intervals of integer numbers from the user.  Each time, the user should have an option to either provide a new one or quit the program.
+- The third exercise requires a time complexity analysis of the "Sliding Tile Puzzle" in the book “Big book of small python projects”. And then, create a more difficult version of the puzzle (5x5) and make it solve automatically with up to 40 moves, and then continue until the puzzle is solved.
 
-During the worse times of the pandemic, Técnico imposed a limit of 2 persons inside the
-above lab. However, the students that use the lab had frequent deadlines, and often
-ignored the 2-person limit.
+<br>
 
-The objectives of this project are to develop a NN-based classifier that, using the dataset,
-is able to:
+## Sorting Algorithms
 
-- Detect when there are more than 2 persons inside the lab;
-- Detect how many people are inside the lab.
+Python program that makes all the algorithms compete and measure the running time for each of. The input for the algorithms
+will be a list of N integers (not sorted) that will grow at every iteration.
 
-## Environment Setup
+### We get these inputs from the user:
+- Initial size of the list
+- Incremental size of the list
+- Number of iterations
+- Range of numbers inside the list
 
-To be able to run this project you need to create an environment with all of the required packages.
+### Outputs from the program:
+- A matrix with the times (in seconds) for each algorithm.
 
-For ease of use, we recommend creating a conda environment with our provided environment file. You simply need to execute the following command:
+<img style="width: 55%" src="preview_img/algorithms_preview.jpeg" alt="Sorting Algorithms">
 
-`conda env create -f environment.yml`
+<br>
 
-Then you can open the \*.ipynb file and run the notebook cells to perform the steps for prepping the data and hyperparameter tuning of both models.
+## Intervals
 
-The result is a pair of classifiers that are able to answer the two objectives mentioned earlier.
+Python program that asks several intervals of integer numbers to the user (negative or positive numbers). Each time, the user has an option to either provide a new interval or quit the program. The intervals form lists of numbers with a limit of -999 or 999.
 
-## Making new predictions
+For each interval given by the user, a continuous list of integer numbers between the
+limits of that interval is produced. 
 
-As a result of all of the process described in the **Jupyter Notebook** two predictors, or classifiers were trained using **neural networks** and hyperparameter tuning for obtaining a model that best generalizes the data.
+### Intervals can be:
+- Connected in relation to the previous intervals, merging into one interval.
+- Overlapped or partially overlapping the previous ones.
+- Not connected to the previous ones.
 
-### Predictor A - Detect more than 2 people in the lab
+The program sorts the intervals in an intercalated way. This is, odd intervals are sorted
+ascendent, and even intervals are randomly sorted. The overlapped or partially overlapping
+intervals will delete the overlapping part.
 
-This is a simpler predictor where its job is to detect a boolean value for whether there are more than 2 people in the lab.
+<img style="width: 55%" src="preview_img/intervals_preview.png" alt="Intervals">
 
-To run this classifier against new unseen data, please run the `predictorA.py` file with the following command:
+<br>
 
-`python predictorA.py <Path-to-dataset> <path-to-results>`
+## 🧩 Sliding Tile Puzzle
 
-The predictor will load the correspondent model, run the prediction and save it to a csv file. It will also print out the accuracy, recall, precision and f1-score to the stdout.
+On the book “Big book of small python projects” we solved the Sliding tile puzzle. We also did a time complexity analysis.
 
-### Predictor B - Detect exact number of people in the lab
+### Our programs runs:
+- A more difficult 5 × 5 variant of the sliding tile puzzle.
+- A “solve automatically” mode, which saves each arrangement of the tiles and then attempts up to 40 random moves.
 
-For this second predictor, it has a more ambicious goal which is to detect exactly how many people are in the lab.
+<img style="width: 55%" src="preview_img/puzzle_preview.png" alt="Sliding Tile Puzzle">
 
-To run this classifier against new unseen data, please run the `predictorB.py` file with the following command:
-
-`python predictorB.py <Path-to-dataset> <path-to-results>`
-
-The predictor will load the correspondent model, run the prediction and save it to a csv file. It will also print out the accuracy, recall, precision and f1-score to the stdout.
-
-## Future Work
-
-No plans yet.
+<br>
 
 ## Suggestions
 
-All suggestions are appreciated so that we can improve and optimize this model.
+All suggestions are appreciated so that we can improve and optimize these scripts.
